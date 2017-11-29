@@ -1,0 +1,20 @@
+.searchLocationWrapper {
+    position: absolute;
+    top:15px;
+    right: 20px;
+    font-size:20px;    
+    float: left;    
+
+}
+
+.btn::before{
+    color: rgb(162, 198, 240);
+    font-family: 'FontAwesome';
+    content: '\f002'  ;
+    font-size: 20px;
+}
+
+.btn:hover::before{
+    color: rgb(231, 237, 243)
+    
+}

@@ -1,0 +1,49 @@
+.App {
+  font-family: 'Roboto', sans-serif;;
+}
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 60px;
+  position: absolute;
+  left: 5px;
+  top: 2px
+}
+.App-header {
+  background-color: rgb(2, 8, 22);
+  height: 65px;
+  padding-top: 5px;
+  color: white;  
+}
+.App-header h3{
+  position: absolute;
+  left: 90px;  
+}
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+body{
+  background: url("https://wallpaperscraft.ru/image/steklo_bliki_svet_kapli_vlazhnyy_18363_3840x2400.jpg") no-repeat center center fixed
+}
+.App .weatherNewsContainer{
+   margin-left : 50px;
+  display: flex;
+  justify-content: flex-start;
+}
+.App .mapContainer{
+ width: 400px;  
+ opacity: 0.7;
+ }
+.App .mapContainer:hover{  
+  opacity: 1
+}
+.App .cw-map-container{
+  display: flex;
+  max-width: 900px; 
+  margin : 20px auto;
+  justify-content:space-between
+}
+
+
+
+/* http://hq-oboi.ru/photo/mokroe_steklo_1920x1200.jpg */

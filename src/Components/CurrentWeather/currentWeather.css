@@ -1,0 +1,76 @@
+.currentWeatherContainer{
+    
+    width: 550px;        
+    font-size: 15px;
+    padding: 5px 5px 15px 5px;
+    color: white;
+    text-align: center;
+    background-color: rgba(24, 33, 52, 0.6 );
+    border-radius: 0 0 10px 10px;   
+
+}
+
+.currentWeatherContainer .header{
+      
+    font-size: 24px;
+    margin : 0px ;
+    text-align: left  
+}
+
+
+.currentWeatherContainer img{    
+    width: 30px;  
+}
+.currentWeatherContainer .descr{
+    font-size: 22px;
+    text-align: left;
+    margin-top:10px    
+}
+.currentWeatherContainer .iconCnt{   
+    display:flex;    
+}
+.currentWeatherContainer .iconCond{   
+    width:50%;
+    text-align: left;    
+}
+.currentWeatherContainer .minMax{   
+    padding: 15px ;
+    line-height: 24px
+    
+}
+
+.currentWeatherContainer .iconCond i{    
+    font-size: 60px;
+}
+.currentWeatherContainer .wi-thermometer{    
+    font-size: 60px;
+    margin: 20px
+}
+
+
+.currentWeatherContainer .spanCond{   
+    font-size: 60px;    
+}
+
+.currentWeatherContainer .paramsWrapper{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 10px;
+  
+}
+
+.currentWeatherContainer i{
+       font-size: 30px;
+}
+
+
+.currentWeatherContainer .paramName{
+    font-size: 14px;
+    margin : 10px 0 10px 0;
+}
+
+.currentWeatherContainer .paramValue{
+    font-size: 14px;
+    font-weight: 300;
+}
