@@ -68,7 +68,7 @@ export const Forecast16 = (props) => {
             </div>
                 :
                 expand ?
-                    <div >
+                    <div className='expand'>
                         {((activeDay || activeDay === 0)) ? (
                             <div
                                 className='description'

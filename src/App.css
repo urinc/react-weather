@@ -95,28 +95,4 @@ body {
         display: none
     }
 }
-
-.App .expan{
-    width: 100px;
-    height: 100px;
-    background-color: grey;
-    color: white;
-    margin:auto;
-    animation: pulsing 2s
-}
-
-  @keyframes pulsing {
-    0% {
-     
-      transform: scale(0.5, 0.5)
-    }
-    100%{
-    
-      transform: scale(1.0, 1.0);
-    }
-   /*  100% {
-      -webkit-transform: scale(0.5, 0.5);
-      transform: scale(0.5, 0.5);
-    } */
-  }
 /* http://hq-oboi.ru/photo/mokroe_steklo_1920x1200.jpg */

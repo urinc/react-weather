@@ -21,11 +21,7 @@ import News from './Containers/newsCnt'
 //import 'bootstrap/dist/css/bootstrap-theme.css';
 // api news 0ba06516a35b4e57a43ee92c9a4b229c
 class App extends Component {
-  state = {
-    expand: false
-  }
-   
-  toggleExpand= ()=> this.setState({expand: !this.state.expand})
+ 
 
   componentWillMount() {
     let width = document.documentElement.clientWidth;
@@ -66,9 +62,10 @@ class App extends Component {
 
                 </div>
 
-                {this.props.storeState.mobView ? <Map /> : null}
+              
                 <Forecast />
                 <Forecast16 />
+                {this.props.storeState.mobView ? <Map /> : null}
               </div>
               : 'Updating location...'}
           </div>
@@ -77,13 +74,8 @@ class App extends Component {
           </div>
         </div>
 
-        <button
-           onClick={this.toggleExpand}
-        > Create
-
-       </button>
-
-            {this.state.expand? <div className='expan'>DIV</div> : null   }
+      
+      
 
       </div>
     );
