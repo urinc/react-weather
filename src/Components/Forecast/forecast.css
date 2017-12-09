@@ -1,35 +1,81 @@
-.forecastContainer{    
-    max-width: 900px;    
+.forecastContainer {
+    max-width: 900px;
     font-size: 16px;
     padding: 15px;
-    margin : 20px auto;
-    color: white;  
-    background-color: rgba(24, 33, 52, 0.6 );
-    border-radius: 0 0 10px 10px; 
+    margin: 20px auto;
+    color: white;
+    background-color: rgba(24, 33, 52, 0.6);
+    border-radius: 0 0 10px 10px;
 }
-.forecastContainer .header{
+
+.forecastContainer .header {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     margin-bottom: 40px;
     text-align: center;
 }
-.forecastContainer .header .day:hover{
-   color:rgb(122, 170, 224);
-   cursor:pointer
+
+.forecastContainer .header .day:hover {
+    color: rgb(122, 170, 224);
+    cursor: pointer
 }
-.forecastContainer .forecastBody{
+
+.forecastContainer .forecastBody {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     text-align: left;
     line-height: 30px;
- }
- .forecastContainer  .toggleForecast{
-   cursor: pointer;
-   margin: -5px 0 10px 0;
- }
- .forecastContainer  .name{    
+}
+
+.forecastContainer .toggleForecast {
+    cursor: pointer;
+    margin: -5px 0 10px 0;
+}
+
+.forecastContainer .name {
     margin-bottom: 20px;
-    font-size: 20px;  
-  }
+    font-size: 20px;
+}
+
+
+.forecastContainer .expander{
+     float:right;
+     color: rgb(162, 198, 240);    
+     font-size: 25px;
+     margin-right: 20px
+}
+ .forecastContainer .expandable{
  
-  
+   display: block;
+   overflow: hidden;
+   animation: pulsing 1s
+}/*
+.forecastContainer .expandable:not(:empty){    
+    height:100px;
+}
+  */
+@media screen and (max-width: 960px) {
+    .forecastBody span {
+        display: none;
+    }
+    .forecastContainer {
+        font-size: 15px;
+        padding: 5px;
+        margin: 20px auto;
+    }
+}
+
+@keyframes pulsing {
+    0% {
+     
+      transform: scale(0.5, 0.5)
+    }
+    100%{
+    
+      transform: scale(1.0, 1.0);
+    }
+   /*  100% {
+      -webkit-transform: scale(0.5, 0.5);
+      transform: scale(0.5, 0.5);
+    } */
+  }

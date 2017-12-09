@@ -1,32 +1,61 @@
-.forecastContainer16{    
-    max-width: 900px;    
+.forecastContainer16 {
+    max-width: 900px;
     font-size: 16px;
     padding: 15px;
-    margin : 20px auto;
-    color: white;    
-    background-color: rgba(24, 33, 52, 0.6 );
-    border-radius: 0 0 10px 10px;   
+    margin: 20px auto;
+    color: white;
+    background-color: rgba(24, 33, 52, 0.6);
+    border-radius: 0 0 10px 10px;
     line-height: 30px;
 }
-.forecastContainer16 .fxBox{    
+
+.forecastContainer16 .fxBox {
     text-align: center;
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     line-height: 30px;
 }
-.forecastContainer16 .month{
+
+.forecastContainer16 .month {
     margin-bottom: 30px;
 }
- .forecastContainer16  .name{    
+
+.forecastContainer16 .name {
     margin-bottom: 20px;
-    font-size: 20px;  
-  }
-  .forecastContainer16 .month:hover{
-    color:rgb(122, 170, 224);
-    cursor:pointer
- }
- .forecastContainer16 .description{
-    color:rgb(122, 170, 224);
-   
-    float:right 
- }
+    font-size: 20px;
+}
+
+.forecastContainer16 .month:hover {
+    color: rgb(122, 170, 224);
+    cursor: pointer
+}
+
+.forecastContainer16 .description {
+    color: rgb(122, 170, 224);
+    float: right
+}
+
+.forecastMobContainerFB {
+    display: flex;
+    justify-content: space-between;
+}
+.forecastMobContainerFB i{
+    padding-top: 8px;
+    
+}
+.forecastContainer16 .name i{
+    float:right;
+    color: rgb(162, 198, 240);    
+    font-size: 25px;
+    margin-right: 20px
+}
+
+@media screen and (max-width: 960px) {
+    .forecastContainer16 {
+        padding: 5px;
+    }
+    .forecastContainer16 .name {
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+}

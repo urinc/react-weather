@@ -1,49 +1,122 @@
 .App {
-  font-family: 'Roboto', sans-serif;;
+    font-family: 'Roboto', sans-serif;
+    ;
 }
+
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 60px;
-  position: absolute;
-  left: 5px;
-  top: 2px
+    animation: App-logo-spin infinite 20s linear;
+    height: 60px;
+    position: absolute;
+    left: 5px;
+    top: 2px
 }
+
 .App-header {
-  background-color: rgb(2, 8, 22);
-  height: 65px;
-  padding-top: 5px;
-  color: white;  
+    background-color: rgb(2, 8, 22);
+    height: 65px;
+    padding-top: 5px;
+    color: white;
+    margin-bottom :15px
 }
-.App-header h3{
-  position: absolute;
-  left: 90px;  
+
+.App-header h3 {
+    position: absolute;
+    left: 70px;
+}
+.App .searchLocation {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    
 }
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-body{
-  background: url("https://wallpaperscraft.ru/image/steklo_bliki_svet_kapli_vlazhnyy_18363_3840x2400.jpg") no-repeat center center fixed
-}
-.App .weatherNewsContainer{
-   margin-left : 50px;
-  display: flex;
-  justify-content: flex-start;
-}
-.App .mapContainer{
- width: 400px;  
- opacity: 0.7;
- }
-.App .mapContainer:hover{  
-  opacity: 1
-}
-.App .cw-map-container{
-  display: flex;
-  max-width: 900px; 
-  margin : 20px auto;
-  justify-content:space-between
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
+body {
+    background: url("https://wallpaperscraft.ru/image/steklo_bliki_svet_kapli_vlazhnyy_18363_3840x2400.jpg") no-repeat center center fixed
+}
 
+.App .weatherNewsContainer {
+    margin-left: 50px;
+    display: flex;
+    justify-content: flex-start;
+}
 
+.App .mapContainer {
+    width: 400px;
+    opacity: 0.7;
+}
+
+.App .mapContainer:hover {
+    opacity: 1
+}
+
+.App .cw-map-container {
+    display: flex;
+    max-width: 900px;
+    margin: 20px auto;
+    justify-content: space-between
+}
+
+@media screen and (max-width: 960px) {
+    .App-logo {
+        height: 30px;
+        left: 0px;
+        top: 0px
+    }
+    .App-header h3 {
+        position: absolute;
+        left: 50px;
+        top: -10px;
+    }
+    .App .searchLocation {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+    }
+    .App .weatherNewsContainer {
+        margin : 0px;
+        display: block;
+       
+    }
+    .App-header {
+        height: 40px
+    }
+    .App .newsContainer {
+        display: none
+    }
+    .App .mapContainer {
+        display: none
+    }
+}
+
+.App .expan{
+    width: 100px;
+    height: 100px;
+    background-color: grey;
+    color: white;
+    margin:auto;
+    animation: pulsing 2s
+}
+
+  @keyframes pulsing {
+    0% {
+     
+      transform: scale(0.5, 0.5)
+    }
+    100%{
+    
+      transform: scale(1.0, 1.0);
+    }
+   /*  100% {
+      -webkit-transform: scale(0.5, 0.5);
+      transform: scale(0.5, 0.5);
+    } */
+  }
 /* http://hq-oboi.ru/photo/mokroe_steklo_1920x1200.jpg */

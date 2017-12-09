@@ -4,7 +4,7 @@ import './news.css';
 
 export const News = (props) => {
   let {articles} = props;
-  console.log(articles)
+
     return <div>
              <h3> 
                  News

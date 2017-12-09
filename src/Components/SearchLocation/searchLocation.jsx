@@ -1,6 +1,6 @@
 import React from 'react';
 import './searchLocation.css';
-import './../../fonts/font-awesome.css';
+//import './../../fonts/font-awesome.css';
 
 
 export const SearchLocation = (props) => {
@@ -10,22 +10,22 @@ export const SearchLocation = (props) => {
     }
 
     let submit = () => {
-        props.submit();
+        props.submit();        
     }
 
     return (
-        <div className='searchLocationWrapper'>
+        <span className='searchLocationContainer'>
             <input
                 type="text"
                 name='city'
                 placeholder='Search location'
                 value={props.value}
                 onChange={props.handleUserInput}
-                onKeyPress={keyHandler}
+                onKeyPress={keyHandler}            
             />
-            <div className='btn'
+            <span className='btn'
                 onClick={submit}
             />
-        </div>
+        </span>
     )
 }

@@ -1,3 +1,18 @@
+export const setMobView = () => {
+    
+    return (dispatch) => {
+      
+     let view =   {
+            type: 'SET_MOBVIEW',
+            payload: true
+        }
+        dispatch(view);
+    }
+}
+
+
+
+
 export const getInitialData = () => {
     return (dispatch) => {
         getCityByIp().then(city => {
@@ -46,7 +61,7 @@ const get5DayForecats = (city, dispatch) => {
         .then(weather => {
             if (weather.cod === "200") {
                 dispatch(setCityUpdated());
-                dispatch(set5DayForecast(weather));              
+                dispatch(set5DayForecast(weather));
             }
         }
         );
@@ -55,10 +70,10 @@ const get16DayForecats = (city, dispatch) => {
     fetch(`http://api.openweathermap.org/data/2.5/forecast/daily?q=${city}&appid=5310e241a1a7ada2ef1e5219f9f41821&units=metric&cnt=16`)
         .then(res => res.json())
         .then(weather => {
-            if (weather.cod === "200") {                
+            if (weather.cod === "200") {
                 dispatch(setCityUpdated());
-                dispatch(set16DayForecast(weather)); 
-            }            
+                dispatch(set16DayForecast(weather));
+            }
         }
         )
 }
@@ -69,33 +84,33 @@ const getCityByIp = () => {
         .then(res => res.json())
         .then(location => location.region)
 }
-export const  getNews = (city) => {
+export const getNews = (city) => {
     return dispatch => {
         let apiKey = `0ba06516a35b4e57a43ee92c9a4b229c`
-        let d = new Date().toISOString().substring(0, 10);    
-        let url=`https://newsapi.org/v2/everything?q=${city}&from=${d}&to=${d}&sortBy=popularity&apiKey=${apiKey}`
-        let urlTop=`https://newsapi.org/v2/top-headlines?q=${city}&apiKey=${apiKey}`
+        let d = new Date().toISOString().substring(0, 10);
+        let url = `https://newsapi.org/v2/everything?q=${city}&from=${d}&to=${d}&sortBy=popularity&apiKey=${apiKey}`
+        let urlTop = `https://newsapi.org/v2/top-headlines?q=${city}&apiKey=${apiKey}`
 
-        let url2=`https://newsapi.org/v2/everything?q=weather%20max%20temp&sortBy=publishedAt&apiKey=${apiKey}`
+        let url2 = `https://newsapi.org/v2/everything?q=weather%20max%20temp&sortBy=publishedAt&apiKey=${apiKey}`
         fetch(url)
-        .then(res => res.json())
-        .then(news => {
-            if ( news.articles.length===0){
-                fetch(url2)
-                .then(res => res.json())
-                 .then(news =>{
-                     dispatch(setCityUpdated());
-                     dispatch(setNews(news.articles));
-                     dispatch(setCityUpdated());
-                  })                 
-            }            
-            if ( news.articles.length>0){                   
-                dispatch(setCityUpdated());
-                 dispatch(setNews(news.articles));
-                dispatch(setCityUpdated());
-            }               
-          }        
-        )
+            .then(res => res.json())
+            .then(news => {
+                if (news.articles.length === 0) {
+                    fetch(url2)
+                        .then(res => res.json())
+                        .then(news => {
+                            dispatch(setCityUpdated());
+                            dispatch(setNews(news.articles));
+                            dispatch(setCityUpdated());
+                        })
+                }
+                if (news.articles.length > 0) {
+                    dispatch(setCityUpdated());
+                    dispatch(setNews(news.articles));
+                    dispatch(setCityUpdated());
+                }
+            }
+            )
     }
 }
 
@@ -117,7 +132,7 @@ const setCurrentConditions = weather => {
 const setNews = news => {
     return {
         type: 'ADD_NEWS',
-        news 
+        news
     }
 }
 const set5DayForecast = forecast => {

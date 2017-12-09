@@ -2,6 +2,7 @@ import { combineReducers } from 'redux'
 
 export const reducer = combineReducers({
     city,
+    mobView,
     currentConditions,
     forecast5Day,
     forecast16Day ,  
@@ -30,6 +31,15 @@ function city(state = {
                 ...state,
                 isNew: false
             };
+        default: return state;
+    }
+}
+function mobView(state=false, action){
+    switch (action.type) {
+        case 'SET_MOBVIEW': {
+            console.log('setmb')
+            return action.payload;
+        }
         default: return state;
     }
 }

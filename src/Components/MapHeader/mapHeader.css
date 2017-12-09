@@ -1,0 +1,13 @@
+.mapHeaderContainer { 
+    font-size: 20px;    
+    color: white;
+    background-color: rgba(24, 33, 52, 0.6);   
+    padding : 8px; 
+}
+
+.mapHeaderContainer i{ 
+    float:right;
+    color: rgb(162, 198, 240);    
+    font-size: 25px;
+    margin-right: 20px
+}
