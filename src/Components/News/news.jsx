@@ -18,7 +18,10 @@ export const News = (props) => {
                  <div className = 'article'>
                  </div>
                  {a.title}
-                 <img src= { a.urlToImage }/>
+                 <img 
+                 alt= "face" 
+                 src= { a.urlToImage }
+                 />
                    
                  <a href={a.url}>{a.source.name}</a>
                   </div>)              

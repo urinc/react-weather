@@ -1,56 +1,88 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-
-import 'bootstrap/dist/css/bootstrap.css';
-import { SearchLocation } from './../Components/SearchLocation/searchLocation.jsx';
-import { getDataByCity, getInitialData } from './../Actions/actions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import CityList from "./cityList";
+import "bootstrap/dist/css/bootstrap.css";
+import { SearchLocation } from "./../Components/SearchLocation/searchLocation.jsx";
+import { getDataByCity, getInitialData } from "./../Actions/actions";
 
 class SearchLocationCnt extends Component {
-    state = {
-        city: ''
-    }
-    componentDidMount() {
-        let city = this.props.history.location.pathname.substring(1);
-        (city.length > 0) ?
-            this.props.fetchDataByCity(city)
-            : this.props.fetchInitialData();
-    }
-    handleUserInput = (e) => {
-        this.setState({ city: e.target.value });
-    }
+  state = {
+    city: "",
+    searchFocus: false
+  };
 
-    fetchData = () => {
-        this.props.fetchDataByCity(this.state.city);
-        this.props.history.push(`${this.state.city}`);
-    }
+  componentDidMount() {
+    let city = this.props.history.location.pathname.substring(1);
+    city.length > 0
+      ? this.props.getDataByCity(city)
+      : this.props.getInitialData();
+  }
+  handleUserInput = e => {
+    this.setState({ city: e.target.value });
+  };
+  handleLocationfromList = city =>{  
+    this.setState({ city} );    
+  }
 
-    componentWillReceiveProps() {
-        let city = this.props.history.location.pathname.substring(1);
-        let { name, isCorrect, isNew } = this.props.store.city;
-        if (name && isCorrect && isNew && (city !== name)) {
-            this.props.history.push(name);
-        }
+  fetchData = () => {
+    this.props.getDataByCity(this.state.city);
+    this.props.history.push(`${this.state.city}`);
+  };
+  componentWillReceiveProps() {
+    let city = this.props.history.location.pathname.substring(1);
+    let { name, isCorrect, isNew } = this.props.store.city;
+    if (name && isCorrect && isNew && city !== name) {
+      this.props.history.push(name);
     }
-    render() {
+  }
 
-        return (
-            <div>
-                <SearchLocation
-                    value={this.state.city}
-                    handleUserInput={this.handleUserInput}
-                    submit={this.fetchData}
-                />
-            </div>
-        )
-    }
+  listenerOn = e => {
+    this.checkParent(e.target) ? true : this.listenerOff();
+  };
+
+  listenerOff = () => {
+    this.setState({ searchFocus: false });
+    document.removeEventListener("click", this.listenerOn);
+  };
+
+  clickHandler = e => {
+    if (this.state.searchFocus === true) return;
+    this.setState({ searchFocus: true });
+    document.addEventListener("click", this.listenerOn);
+  };
+
+  checkParent(element) {
+    let parent = element.parentElement;
+    if (parent === null) return false;
+    return element.getAttribute("id") === "searchLocation"
+      ? true
+      : this.checkParent(parent);
+  }
+  someS = 'hui'
+  render() {
+    return (
+      <div id="searchLocation" onClick={this.clickHandler}>
+        <SearchLocation
+          value={this.state.city}
+          handleUserInput={this.handleUserInput}
+          submit={this.fetchData}
+        />
+        {this.state.searchFocus ? (
+          <CityList
+            handleLoc={this.handleLocationfromList}
+            city={this.state.city}
+          />
+        ) : null}
+      </div>
+    );
+  }
 }
 export default connect(
-    state => ({
-        store: state
-    }),
-    dispatch => ({
-        fetchDataByCity: (city) => dispatch(getDataByCity(city)),
-        fetchInitialData: () => dispatch(getInitialData())
-    })
-)(SearchLocationCnt)
-
+  state => ({
+    store: state
+  }),
+  dispatch => ({
+    getDataByCity: city => dispatch(getDataByCity(city)),
+    getInitialData: () => dispatch(getInitialData())
+  })
+)(SearchLocationCnt);

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Forecast } from './../Components/Forecast/Forecast.jsx';
-
+import { get5DayForecats } from './../Actions/actions'
 class ForecastCnt extends Component {
     state = {
         day: 0,
@@ -11,9 +11,16 @@ class ForecastCnt extends Component {
     toggleExpand = ()=>  this.setState({ expand: !this.state.expand })
   
     componentWillMount(){
-        this.setState({ expand: !this.props.storeState.mobView })
-        //console.log(this.props.storeState)
+        this.setState({ expand: !this.props.storeState.mobView })     
     }
+
+   componentWillReceiveProps(nextProps) {
+       if (this.props.storeState.city.name!==nextProps.storeState.city.name) {         
+         this.props.get5DayForecats(nextProps.storeState.city.name)
+        }
+    
+   }
+
 
     render() {
         let forecast = this.props.storeState.forecast5Day;
@@ -39,5 +46,7 @@ export default connect(
     state => ({
         storeState: state
     }),
-    //dispatch => ({fetchInitialData: () => dispatch(addInitialData())    })
+    dispatch => ({
+        get5DayForecats: (city) => dispatch(get5DayForecats(city))   
+     })
 )(ForecastCnt)

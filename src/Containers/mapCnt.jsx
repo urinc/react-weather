@@ -21,7 +21,7 @@ export class MapCnt extends Component {
     }
 
     toggleHelper = () => {
-        console.log(this.state.expand);
+        
         this.setState({ expand: !this.state.expand })
     };
     componentWillMount() {

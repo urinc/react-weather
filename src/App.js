@@ -13,26 +13,20 @@ import Forecast16 from './Containers/forecast16Cnt.jsx';
 import Map from './Containers/mapCnt.jsx';
 import News from './Containers/newsCnt'
 
-//import './fonts/font-awesome.css';
-//import ItTourMain from './Components/itTourMain.jsx';
-//import ItTourMinimalPrices from './Components/itTourMinimalPrices.jsx';
-//import { Row, Col, Button } from 'react-bootstrap';
-//import 'bootstrap/dist/css/bootstrap.css';
-//import 'bootstrap/dist/css/bootstrap-theme.css';
-// api news 0ba06516a35b4e57a43ee92c9a4b229c
 class App extends Component {
- 
+  state = {
+    color: 'red'
+  }
 
   componentWillMount() {
     let width = document.documentElement.clientWidth;
     if (width <= 960) this.props.setMob();
   }
 
+  st = { color: this.state.color }
 
-  render() {
-    let st = 'square';
-    let city = this.props.storeState.city;
-    let style = { display: 'none' };
+  render() {    
+    let city = this.props.storeState.city;    
     return (
       <div className="App">
         <div className="App-header">
@@ -58,11 +52,7 @@ class App extends Component {
                   <div className='mapContainer'>
                     <Map className='mapContainer' />
                   </div>
-
-
                 </div>
-
-              
                 <Forecast />
                 <Forecast16 />
                 {this.props.storeState.mobView ? <Map /> : null}
@@ -73,10 +63,6 @@ class App extends Component {
             <News />
           </div>
         </div>
-
-      
-      
-
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Forecast16 } from './../Components/Forecast16/forecast16.jsx';
+import { get16DayForecats } from './../Actions/actions'
 
 class Forecast16Cnt extends Component {
 
@@ -11,6 +12,17 @@ class Forecast16Cnt extends Component {
 
     setActiveDay = ind =>this.setState({ day: ind });
     toggleExpand = ()=> this.setState({ expand: !this.state.expand });
+
+
+    componentWillReceiveProps(nextProps) {
+        if (this.props.storeState.city.name!==nextProps.storeState.city.name) {
+         
+          this.props.get16DayForecats(nextProps.storeState.city.name)
+         }
+     
+    }
+ 
+
 
     render() {
         let forecast = this.props.storeState.forecast16Day;
@@ -33,5 +45,7 @@ export default connect(
     state => ({
         storeState: state
     }),
-    //dispatch => ({fetchInitialData: () => dispatch(addInitialData())    })
+    dispatch => ({
+        get16DayForecats: (city) => dispatch(get16DayForecats(city))   
+     })
 )(Forecast16Cnt)
